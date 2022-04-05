@@ -21,15 +21,15 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
+  MyHomePage({Key? key, this.title}) : super(key: key);
+  final String? title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  ProgressTimeline screenProgress;
+  ProgressTimeline? screenProgress;
 
   List<SingleState> allStages = [
     SingleState(stateTitle: "Stage 1"),
@@ -55,11 +55,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title!),
       ),
       body: Center(
-        child: Column(
-//          crossAxisAlignment: CrossAxisAlignment.center,
+        child: Column(crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Padding(
@@ -81,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
               shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(20.0)),
               onPressed: () {
-                screenProgress.gotoNextStage();
+                screenProgress!.gotoNextStage();
               },
             ),
             SizedBox(
@@ -99,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
               shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(20.0)),
               onPressed: () {
-                screenProgress.gotoPreviousStage();
+                screenProgress!.gotoPreviousStage();
               },
             ),
             SizedBox(
@@ -117,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
               shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(20.0)),
               onPressed: () {
-                screenProgress.failCurrentStage();
+                screenProgress!.failCurrentStage();
               },
             )
           ],
